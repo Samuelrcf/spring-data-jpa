@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +23,10 @@ public class Review implements Serializable{
 	
 	@Column(nullable = false)
 	private String comment;
+	
+	@OneToOne
+	@JoinColumn(name = "book_id")
+	private Book book;
 
 	public UUID getId() {
 		return id;
