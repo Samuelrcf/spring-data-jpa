@@ -1,5 +1,7 @@
 package com.bookstore.spring_data_jpa.services;
 
+import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +42,14 @@ public class BookService {
 		book.setReview(review);
 		
 		return bookRepository.save(book);
+	}
+	
+	public List<Book> getAllBooks(){
+		return bookRepository.findAll();
+	}
+	
+	@Transactional
+	public void deleteBook(UUID id){
+		bookRepository.deleteById(id);;
 	}
 }

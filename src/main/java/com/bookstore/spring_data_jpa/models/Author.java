@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Author implements Serializable{
 	@Column(nullable = false, unique = true)
 	private String name;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "authors")
 	private Set<Book> books = new HashSet<>();
 

@@ -3,6 +3,8 @@ package com.bookstore.spring_data_jpa.models;
 import java.io.Serializable;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +26,7 @@ public class Review implements Serializable{
 	@Column(nullable = false)
 	private String comment;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "book_id")
 	private Book book;
