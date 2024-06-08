@@ -28,6 +28,14 @@ public class Review implements Serializable{
 	@JoinColumn(name = "book_id")
 	private Book book;
 
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
 	public UUID getId() {
 		return id;
 	}
